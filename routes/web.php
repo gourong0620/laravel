@@ -10,13 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
+/**
+ * 将后台的路由文件统一放在admin/web文件下面加载
+ */
+include 'admin/web.php';
+/*
 Route::get('/', function () {
-    dd(app('Family')->say());
-    //return view('welcome');
+//    dd(app('Family')->say());
+//    return view('welcome');
 //    $family->say();
 });
+*/
 
 
 

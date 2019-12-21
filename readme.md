@@ -1,3 +1,16 @@
+本项目缺少vendor文件
+
+克隆后运行  composer install
+
+将.env.example文件命名为 .env
+
+如果使用的mysql是5.7以上版本则配置config/database.php文件的
+
+'charset' => 'utf8mb4',
+ 
+ 'collation' => 'utf8mb4_unicode_ci'
+ 
+ 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
