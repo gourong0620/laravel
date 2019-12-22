@@ -21,3 +21,16 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+//进行admins数据表的数据填充
+/*
+ * 1.执行php artisan tinker
+ * 2.输入：factory(App\Model\Admin::class,3)->create();
+ */
+$factory->define(\App\Model\Admin::class, function (Faker $faker) {
+    static $password;
+    return [
+        'username' => $faker->name,
+        'password' => $password ?: $password = bcrypt('admin'),
+    ];
+});
