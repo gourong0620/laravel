@@ -2,9 +2,9 @@
 
 namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Admin extends Model
+use Illuminate\Foundation\Auth\User;
+class Admin extends User
 {
-    //
+    //登录令牌
+    protected $rememberTokenName = '';
 }

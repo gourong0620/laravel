@@ -40,6 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        //配置后台登录的用户验证
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
 
         'api' => [
             'driver' => 'token',
@@ -68,6 +73,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+        //配置后台登录需要的类名验证
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Model\Admin::class,
         ],
 
         // 'users' => [

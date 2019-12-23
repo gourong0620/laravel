@@ -68,3 +68,21 @@ Route::prefix('admin')->group(function () {
         Route::get('login','EntryController@loginForm');
     });
 });
+
+/**
+ * laravel 路由的写法
+ * 第四种
+ * 直接调用group函数需要传递俩个参数
+ * 第一个数组里面可以是前缀    命名空间   域名
+ * 第二个闭包函数
+ */
+Route::group(array('prefix'=> 'admin','namespace' => 'Admin'),function (){
+    //后台登录路由
+    Route::get('login','EntryController@loginForm');
+    //处理后台登录
+    Route::post('login','EntryController@login');
+    //首台登录后首页
+    Route::get('index','EntryController@index');
+    //退出登录
+    Route::get('logout','EntryController@logout');
+});
