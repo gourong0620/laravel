@@ -85,4 +85,10 @@ Route::group(array('prefix'=> 'admin','namespace' => 'Admin'),function (){
     Route::get('index','EntryController@index');
     //退出登录
     Route::get('logout','EntryController@logout');
+    //展示修改密码
+    Route::get('changePassword','MyController@passwordForm');
+    //修改密码
+    Route::post('checkPassword','MyController@checkPassword');
+    //标签的资源路由
+    Route::resource('tag','TagController');
 });

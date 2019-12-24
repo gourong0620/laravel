@@ -65,6 +65,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="fa fa-w fa-user"></i>
+                            {{Auth::guard('admin')->user()->username}}
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
