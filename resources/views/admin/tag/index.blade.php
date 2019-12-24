@@ -25,7 +25,7 @@
                             <td>{{$value->name}}</td>
                             <td>
                                 <div class="btn-group btn-group-sm">
-                                    <a href="/admin/tag/{{$value->id}}" class="btn btn-default">编辑</a>
+                                    <a href="/admin/tag/{{$value->id}}/edit" class="btn btn-default">编辑</a>
                                     <a href="javascript:;" onclick="del({{$value->id}})"
                                        class="btn btn-default">删除</a>
                                 </div>
