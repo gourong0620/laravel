@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Admin\CommonController;
-class LessController extends CommonController
+
+class LessonController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class LessController extends CommonController
      */
     public function index()
     {
-        //
+        $data = array();
+        return view('admin.lesson.index',compact('data'));
     }
 
     /**
@@ -24,7 +25,7 @@ class LessController extends CommonController
      */
     public function create()
     {
-        //
+        return view('admin.lesson.create');
     }
 
     /**
@@ -46,7 +47,7 @@ class LessController extends CommonController
      */
     public function show($id)
     {
-        //
+        return view('admin.lesson.edit');
     }
 
     /**

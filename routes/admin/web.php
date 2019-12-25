@@ -91,4 +91,6 @@ Route::group(array('prefix'=> 'admin','namespace' => 'Admin'),function (){
     Route::post('checkPassword','MyController@checkPassword');
     //标签的资源路由
     Route::resource('tag','TagController');
+    //视频资源路由
+    Route::resource('lesson','LessonController');
 });

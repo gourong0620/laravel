@@ -42,6 +42,11 @@ return [
     */
 
     'disks' => [
+        //声明文件存放位置
+        'attachment' => [
+            'driver' => 'local',
+            'root' => 'attachment',
+        ],
 
         'local' => [
             'driver' => 'local',
