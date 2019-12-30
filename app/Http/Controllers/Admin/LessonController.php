@@ -4,17 +4,18 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
-class LessonController extends Controller
+use App\Http\Controllers\Admin\CommonController;
+use App\Model\Lesson;
+class LessonController extends CommonController
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Lesson $lesson)
     {
-        $data = array();
+        $data = $lesson::all();
         return view('admin.lesson.index',compact('data'));
     }
 
@@ -34,9 +35,16 @@ class LessonController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Lesson $lesson)
     {
-        //
+        $lesson['tital'] = $request['tital'];
+        $lesson['introduce'] = $request['introduce'];
+        $lesson['preview'] = $request['preview'];
+        $lesson['iscommend'] = $request['iscommend'];
+        $lesson['ishot'] = $request['ishot'];
+        $lesson['click'] = $request['click'];
+        $lesson->save();
+        return redirect('admin/lesson');
     }
 
     /**
@@ -58,7 +66,8 @@ class LessonController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Lesson::find($id);
+        return view('admin.lesson.edit',array('data' => $data));
     }
 
     /**
@@ -70,7 +79,18 @@ class LessonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Lesson::find($id);
+        $data->tital = $request['tital'];
+        $data->introduce = $request['introduce'];
+        $data->preview = $request['preview'];
+        $data->iscommend = $request['iscommend'];
+        $data->ishot = $request['ishot'];
+        $data->click = $request['click'];
+        $status = $data->save();
+        if($status){
+            return redirect('admin/lesson');
+        }
+        return redirect()->back();
     }
 
     /**
@@ -81,6 +101,12 @@ class LessonController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $model = Lesson::find($id);
+//        event(new \App\Events\LessonEvent($model));//调用事件
+        if(count($model->videos) > 0){
+            session()->flash('success', '改类下面存在视频，请先删除视频~');
+        }
+        $model->delete();
+        $this->success('删除成功');
     }
 }

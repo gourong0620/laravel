@@ -114,7 +114,11 @@
                     </li>
                     <li class="list-group-item" id="40">
                         <a href="/admin/lesson">
-                            视频管理 </a>
+                            视频类管理 </a>
+                    </li>
+                    <li class="list-group-item" id="40">
+                    <a href="/admin/video">
+                        视频内容管理 </a>
                     </li>
                 </ul>
                 <!----------返回模块列表 start------------>

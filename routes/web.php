@@ -13,6 +13,7 @@
 /**
  * 将后台的路由文件统一放在admin/web文件下面加载
  */
+Route::get('/','Admin\EntryController@loginForm');
 Route::any('/component/uploader','Component\UploadController@uploader');
 Route::any('/component/filesLists','Component\UploadController@filesLists');
 include 'admin/web.php';

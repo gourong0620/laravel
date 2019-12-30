@@ -93,4 +93,6 @@ Route::group(array('prefix'=> 'admin','namespace' => 'Admin'),function (){
     Route::resource('tag','TagController');
     //视频资源路由
     Route::resource('lesson','LessonController');
+    //视频内容资源路由
+    Route::resource('video','VideoController');
 });

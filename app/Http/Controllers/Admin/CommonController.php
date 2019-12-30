@@ -29,4 +29,14 @@ abstract class CommonController extends Controller
     {
         return response()->json(['message' => $message,'valid' => 2]);
     }
+
+    /*
+     * 获取文件名
+     */
+    public function getFileName($url)
+    {
+        $arr = explode('/',$url);
+        $url = '/'.$arr[3].'/'.$arr[4].'/'.$arr[5];
+        return $url;
+    }
 }

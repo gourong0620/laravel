@@ -8,6 +8,7 @@
  */
 
 define('LARAVEL_START', microtime(true));
+define('PUBLIC_URL',__DIR__ );
 
 /*
 |--------------------------------------------------------------------------

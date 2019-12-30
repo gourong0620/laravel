@@ -12,4 +12,12 @@ class Video extends Model
      * @var array
      */
     protected $guarded = [];
+
+    /*
+     * 定义多对一关系
+     */
+    public function lesson()
+    {
+        return $this->belongsTo('App\Model\Lesson','lesson_id','id');
+    }
 }
